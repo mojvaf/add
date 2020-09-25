@@ -1,24 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import "./App.css";
 
 function App() {
+  const [persons, setPersons] = useState([]);
+  const [addUserBtn, setAddUserBtn] = useState("");
+  const [doubleBtn, setDoubleBtn] = useState("");
+  const [showMillionairBtn, setShowMillionairBtn] = useState("");
+  const [sortBtn, setSortBtn] = useState("");
+  const [calculateWealthBtn, setCalculateWealthBtn] = useState("");
+
+  fetch("https://randomuser.me/api");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container">
+      <aside>
+        <button className="add-user">Add User</button>
+        <button className="double">Double Money</button>
+        <button className="show-millionaires">show only millionaires</button>
+        <button className="sort">sort by richest</button>
+        <button className="calculate-wealth">Calculate entire wealth</button>
+      </aside>
+
+      <main className="main">
+        <h2>
+          <strong>Person</strong>Wealth
+        </h2>
+      </main>
     </div>
   );
 }
